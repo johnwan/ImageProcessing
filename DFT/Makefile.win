@@ -1,0 +1,39 @@
+# Project: DFT
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = edgemag.o inout.o main.o DFT.o $(RES)
+LINKOBJ  = edgemag.o inout.o main.o DFT.o $(RES)
+LIBS =  -L"D:/DEV-CPP/lib" -g3  
+INCS =  -I"D:/DEV-CPP/include" 
+CXXINCS =  -I"D:/DEV-CPP/lib/gcc/mingw32/3.4.2/include"  -I"D:/DEV-CPP/include/c++/3.4.2/backward"  -I"D:/DEV-CPP/include/c++/3.4.2/mingw32"  -I"D:/DEV-CPP/include/c++/3.4.2"  -I"D:/DEV-CPP/include" 
+BIN  = DFT.exe
+CXXFLAGS = $(CXXINCS)   -g3
+CFLAGS = $(INCS)   -g3
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before DFT.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "DFT.exe" $(LIBS)
+
+edgemag.o: edgemag.c
+	$(CC) -c edgemag.c -o edgemag.o $(CFLAGS)
+
+inout.o: inout.c
+	$(CC) -c inout.c -o inout.o $(CFLAGS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+DFT.o: DFT.c
+	$(CC) -c DFT.c -o DFT.o $(CFLAGS)
